@@ -1,7 +1,11 @@
 <?php namespace Simexis\Braintree;
 
+use Simexis\Braintree\BraintreeControllerCommand;
 use \Illuminate\Support\ServiceProvider;
 use \Illuminate\Support\Facades\Config;
+use \Illuminate\Support\Facades\View;
+use \Illuminate\Support\Facades\Blade;
+use \Illuminate\Support\Facades\Artisan;
 use \Braintree_Configuration;
 
 class BraintreeServiceProvider extends ServiceProvider {
@@ -18,7 +22,7 @@ class BraintreeServiceProvider extends ServiceProvider {
 	 *
 	 * @return void
 	 */
-	public function boot()
+    public function boot()
     {
 
         $this->publishes([
@@ -29,22 +33,22 @@ class BraintreeServiceProvider extends ServiceProvider {
             __DIR__.'/../../config/config.php', 'braintree'
         );
 
-	}
+    }
 
-	/**
+    /**
 	 * Register the service provider.
 	 *
 	 * @return void
 	 */
-	public function register()
-	{
+    public function register()
+    {
 
         Braintree_Configuration::environment(Config::get('braintree::environment'));
         Braintree_Configuration::merchantId(Config::get('braintree::merchantId'));
         Braintree_Configuration::publicKey(Config::get('braintree::publicKey'));
         Braintree_Configuration::privateKey(Config::get('braintree::privateKey'));
 
-	}
+    }
 
 	/**
 	 * Get the services provided by the provider.
