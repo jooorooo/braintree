@@ -37,11 +37,18 @@ class BraintreeServiceProvider extends ServiceProvider {
 	 */
     public function register()
     {
-
-        Braintree_Configuration::environment(Config::get('braintree::environment'));
-        Braintree_Configuration::merchantId(Config::get('braintree::merchantId'));
-        Braintree_Configuration::publicKey(Config::get('braintree::publicKey'));
-        Braintree_Configuration::privateKey(Config::get('braintree::privateKey'));
+		
+		$this->app['braintree'] = $this->app->share(function($app)
+        {
+			Braintree_Configuration::environment($app['config']->get('braintree.environment'));
+			Braintree_Configuration::merchantId($app['config']->get('braintree.merchantId'));
+			Braintree_Configuration::publicKey($app['config']->get('braintree.publicKey'));
+			Braintree_Configuration::privateKey($app['config']->get('braintree.privateKey'));
+		
+            return Braintree_Configuration::gateway();
+        });
+		
+        
 		
 		$this->app->singleton('command.braintree.example', function($app) {
             return new BraintreeExampleCommand();
