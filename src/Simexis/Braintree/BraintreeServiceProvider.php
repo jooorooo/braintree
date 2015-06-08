@@ -1,11 +1,8 @@
 <?php namespace Simexis\Braintree;
 
-use Simexis\Braintree\BraintreeControllerCommand;
 use \Illuminate\Support\ServiceProvider;
 use \Illuminate\Support\Facades\Config;
-use \Illuminate\Support\Facades\View;
-use \Illuminate\Support\Facades\Blade;
-use \Illuminate\Support\Facades\Artisan;
+
 use \Braintree_Configuration;
 
 class BraintreeServiceProvider extends ServiceProvider {
@@ -24,7 +21,6 @@ class BraintreeServiceProvider extends ServiceProvider {
 	 */
     public function boot()
     {
-
         $this->publishes([
             __DIR__.'/../../config/config.php' => config_path('braintree.php'),
         ], 'config');
@@ -32,7 +28,6 @@ class BraintreeServiceProvider extends ServiceProvider {
         $this->mergeConfigFrom(
             __DIR__.'/../../config/config.php', 'braintree'
         );
-
     }
 
     /**
