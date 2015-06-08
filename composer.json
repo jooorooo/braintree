@@ -1,6 +1,6 @@
 {
     "name": "simexis/braintree",
-    "description": "A Braintree Service provider, wrapper with examples for Laravel",
+    "description": "A Braintree Service provider",
     "license": "MIT",
     "authors": [
         {
@@ -16,6 +16,9 @@
         "braintree/braintree_php" : ">=3.0.1"
     },
     "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
         "psr-0": {
             "Simexis\\Braintree\\": "src/"
         }
