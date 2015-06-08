@@ -1,4 +1,4 @@
-<?php namespace Mschinis\Braintree;
+<?php namespace Simexis\Braintree;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;

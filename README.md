@@ -1,4 +1,4 @@
-Braintree Package for Laravel 4.2
+Braintree Package for Laravel 5.0
 ==============
 
 ### Installation
@@ -6,7 +6,7 @@ Braintree Package for Laravel 4.2
 In your Laravel project's composer.json file, add `braintree` as a dependency in the require object:
 
 ```js
-"mschinis/braintree": "dev-master"
+"simexis/braintree": "dev-master"
 ```
 
 Use `composer update` for composer to update the dependencies and download the package.
@@ -16,7 +16,7 @@ Once installed, add the ServiceProvider to your provider array within `app/confi
 ```php
 'providers' => array(
 
-    'Mschinis\Braintree\BraintreeServiceProvider'
+    'Simexis\Braintree\BraintreeServiceProvider'
 
 )
 ```
@@ -26,10 +26,10 @@ Once installed, add the ServiceProvider to your provider array within `app/confi
 To publish the configuration file, run:
 
 ```shell
-php artisan config:publish mschinis/braintree
+php artisan config:publish simexis/braintree
 ```
 
-Then open `app/config/packages/mschinis/braintree/config.php` to setup your environment and keys:
+Then open `app/config/packages/simexis/braintree/config.php` to setup your environment and keys:
 Acceptable environment values are `sandbox` or `production`.
 All required keys can be found by logging in to your [sandbox](https://sandbox.braintreegateway.com/login) or [production](https://www.braintreegateway.com/login) account
 
@@ -46,7 +46,7 @@ return array(
 );
 ```
 
-You can setup different environmental configurations by creating matching folders inside the `app/config/packages/mschinis/braintree` directory. For instance, if you have a `local` environment, create a config file at `app/config/packages/mschinis/braintree/local/config.php` for that environment.
+You can setup different environmental configurations by creating matching folders inside the `app/config/packages/simexis/braintree` directory. For instance, if you have a `local` environment, create a config file at `app/config/packages/simexis/braintree/local/config.php` for that environment.
 
 ### Example
 You can use the artisan command `php artisan braintree:example` to generate a boilerplate controller that will handle an example payment and an example view with a payment form.

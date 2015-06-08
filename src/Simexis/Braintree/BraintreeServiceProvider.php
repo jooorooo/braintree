@@ -1,6 +1,6 @@
-<?php namespace Mschinis\Braintree;
+<?php namespace Simexis\Braintree;
 
-use Mschinis\Braintree\BraintreeControllerCommand;
+use Simexis\Braintree\BraintreeControllerCommand;
 use \Illuminate\Support\ServiceProvider;
 use \Illuminate\Support\Facades\Config;
 use \Illuminate\Support\Facades\View;
@@ -24,13 +24,13 @@ class BraintreeServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
     {
-		$this->package('mschinis/braintree');
+		$this->package('simexis/braintree');
 
-        $this->app->bind('mschinis::command.braintree.example', function($app) {
+        $this->app->bind('simexis::command.braintree.example', function($app) {
             return new BraintreeExampleCommand($app['files']);
         });
         $this->commands(array(
-            'mschinis::command.braintree.example'
+            'simexis::command.braintree.example'
         ));
 
 
