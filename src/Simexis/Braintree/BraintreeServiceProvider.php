@@ -42,6 +42,10 @@ class BraintreeServiceProvider extends ServiceProvider {
         Braintree_Configuration::merchantId(Config::get('braintree::merchantId'));
         Braintree_Configuration::publicKey(Config::get('braintree::publicKey'));
         Braintree_Configuration::privateKey(Config::get('braintree::privateKey'));
+		
+		$this->app->singleton('command.braintree.example', function($app) {
+            return new BraintreeExampleCommand();
+        });
 
     }
 
@@ -52,7 +56,9 @@ class BraintreeServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array(
+			'command.braintree.example'
+		);
 	}
 
 }
