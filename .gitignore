@@ -2,3 +2,6 @@
 composer.phar
 composer.lock
 .DS_Store
+stubs
+/src/Simexis/Braintree/BraintreeServiceProvider.php
+/src/Simexis/Braintree/BraintreeExampleCommand.php
